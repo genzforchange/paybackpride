@@ -8,21 +8,176 @@ html {
 * {
   box-sizing: border-box;
   scroll-behavior: smooth;
-
 }
 
-body {
+h1{
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 600;
+  font-size: 55px;
+  margin-bottom: 0;
+}
+
+h2{
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 500;
+  font-size: 40px
+}
+
+p{
   font-family: 'League Spartan', sans-serif;
   font-weight: 300;
+  font-size: 21px;
+  line-height: 34px;
+  text-align: center;
+}
 
+a{
+  color: #295da7;
+  font-weight: 600;
+}
+
+body{
+  background-color: white;
+  margin: 0;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 300;
+}
+
+header{
+  min-height: 100vh;
+  color: white;
+  display: flex;
+  flex-direction: row;
+}
+
+nav{
+  height: 80px;
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+#header-logo{
+  width: 150px;
+  height: auto;
+}
+
+.column_1{
+  background-color: black;
+  width: 60%;
+  height: auto;
+  padding: 150px 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.column_2{
+  background-color: black;
+  width: 40%;
+  height: auto;
+}
+
+.header_card{
+  background-color: white;
+  height: 90vh;
+  margin: 50px 75px;
+  border-radius: 25px;
+  padding: 50px;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header_card img{
+  width: 80%;
+  height: auto;
+}
+
+.divider{
+  background-image: linear-gradient(to right, #ef4347, #fcb133, #5b946f, #4065ae, #49496d);
+  width: 100%;
+  height: 75px;
+  display: flex;
+  justify-content: center;
+}
+
+.banner{
+  background-color: white;
+  width: 100%;
+  height: 50px;
+  margin: 10px 0;
+  text-align: center;
+  align-items: center;
+}
+
+.banner p{
+  font-size: 21px;
+  font-weight: 600;
+}
+
+section{
+  background-color: white;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+section h1, section p{
+  max-width: 1000px;
+}
+
+.scroll {
+  background-color: rgba(0, 0, 0, 0.10);
+  border-radius: 25px;
+  margin: 25px;
+  padding: 25px;
+}
+
+#table_filter{
+  padding: 25px;
+}
+
+.sort {
+  margin-bottom: 7px !important;
+}
+
+.by {
+  color: black;
+  border: 2px black solid;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.option {
+  display: inline-block;
+  margin: 10px;
+}
+
+.option p {
+  font-weight: bold;
+}
+
+input[type="search"]{
+  width: 300px;
 }
 
 .cards tbody tr {
+  background-color: white;
   float: left;
-  width: 10rem;
-  margin: 0.5rem;
-  border: 0.1rem solid black;
-  border-radius: .25rem;
+  width: 200px;
+  margin: 10px;
+  border: 1px solid black;
+  border-radius: 25px;
   height: 275px;
   text-align: center;
 }
@@ -33,10 +188,6 @@ thead {
 
 .cards tbody td {
   display: block;
-}
-
-.smaller {
-  font-size: 75%
 }
 
 .title {
@@ -52,68 +203,16 @@ td .a {
   float: left;
 }
 
-.row{
-  padding: 30px;
-  text-align: right;
-}
-
 .option p {
   margin: 0;
 }
-/* Float four columns side by side */
-/* .column {
-  float: left;
-  width: 16.66%;
-  padding: 0 10px;
-  height: 270px;
-} */
-
-/* Remove extra left and right margins, due to padding */
-/* .row {margin: 0 -5px;} */
-
-/* Clear floats after the columns */
-/* .row:after {
-  content: "";
-  display: table;
-  clear: both;
-} */
 
 table {
-  /* width: 80%; */
   margin: auto;
-  /* height: 400px; 
-  width: 80%;
-  margin: auto; */
 }
 
-/* thead { */
-  /* position: sticky; make the table heads sticky */
-  /* top: 0px;
-  background-color: white; */
-/* } */
-
-.scroll {
-  /* overflow-y: scroll; */
-    background-color: white;
-}
-
-/* Responsive columns */
-@media screen and (max-width: 600px) {
-  .column {
-    width: 30%;
-    display: block;
-    margin-bottom: 20px;
-  }
-  .right {
-    float: right;
-    margin-left: 0px;
-  }
-  
-}
-
-/* Style the counter cards */
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 9px 0 rgba(0, 0, 0, 0.25);
   padding: 16px;
   text-align: center;
   background-color: #f1f1f1;
@@ -123,12 +222,10 @@ table {
 table img {
   max-width: 100%;
   max-height: 100px;
-  
 }
 
 dialog {
   width: 80%;
-  /*border-radius: 25px;*/
   border: 2px solid Black;
   padding: 15px 15px 15px 15px;
   margin: 20px 20px 20px 20px;
@@ -138,171 +235,37 @@ dialog {
   position: relative;
 }
 
-#x {
-    position: absolute;
-    background: red;
-    color: white;
-    top: -10px;
-    right: -10px;
-}
-
-/* .expandMe:before {
-    content: "+";
-    display: block;
-    cursor: pointer;
-}
-.expandMe.selected:before {
-    content: "-";
-} */
-/* .childCell {
-    display: none;
-}
-.childCell table {
-    border: 2px solid #555;
-} */
-
-:root {
-  --black: #000;
-  --white: #fff;
-}
-
-h1{
-  font-family: 'League Spartan', sans-serif;
-  font-weight: 500;
-  font-size: 40px;
-  margin-bottom: 0;
-}
-
-p{
-  font-family: 'League Spartan', sans-serif;
-  font-weight: 300;
-  font-size: 20px;
-  line-height: 35px;
-}
-
-a{
-  color: #295da7;
-  font-weight: 600;
-}
-
-.row i {
-  color: white;
-}
-
-body{
-  background-color: black;
-  margin: 0;
-}
-
-header{
-  min-height: 100vh;
-  color: white;
-}
-
-nav{
-  background-color: white;
-  height: 80px;
-  text-align: center;
-  margin-bottom: 100px;
-}
-
-.welcome{
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-  max-width: 1000px;
-}
-
-.welcome p, .welcome h1{
-  margin: 10px 10%;
-}
-
-
-#header-logo{
-  width: 150px;
-  height: auto;
-}
-
-#gz4c{
-  position: fixed;
-  bottom: 10px;
-  left: 10px;
-}
-
-#gz4c-logo{
-  width: 50px;
-  transition: .2s;
-
-}
-
-#gz4c-logo:hover{
-  width: 60px;
-  transition: .2s;
-}
-
-section{
-  background-color: white;
-  padding: 20px 5%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-section h1, section p{
-  max-width: 600px;
-}
-
-article{
-  padding: 20px 5%;
-  background-color: #f9b00d;
-  text-align: center;
-  border-radius: 10px;
-  
-}
-
-.article-inclusion{
-  max-height: 300px;
-}
-
 tbody{
   margin: auto;
 }
 
-#table_filter{
-  padding: 20px;
-}
-
-input[type="search"]{
-  width: 300px;
-}
-
-button{
-  color: white;
-  background: none;
-  border: 2px white solid;
-  border-radius: 3px;
+button-white{
+  color: black;
+  background: white;
+  border-radius: 50px;
   font-family: 'League Spartan', sans-serif;
   font-weight: 500;
-  font-size: 30px;
+  font-size: 21px;
+  text-decoration: none;
   padding: 10px 15px;
   margin: 30px auto;
+}
 
+button-black{
+  color: white;
+  background: black;
+  border-radius: 50px;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 500;
+  font-size: 21px;
+  text-decoration: none;
+  padding: 10px 15px;
 }
 
 button:hover{
   background-color: white;
   color: black;
   transition: .3s;
-}
-
-.by {
-  color: black;
-  border: 2px black solid;
-  border-radius: 5px;
-  padding: 5px;
 }
 
 .hidden {
@@ -331,39 +294,26 @@ select {
   padding: 5px;
 }
 
-.left {
-  float: left;
+.row{
+  background-color: black;
+  text-align: center;
+  color: white;
+  font-size: 13px;
+  padding: 25px;
 }
 
-.right {
-  margin-left: 10px;
+.row i {
+  color: white;
 }
 
-.option {
-  display: inline-block;
-  margin: 10px;
+@media screen and (max-width: 600px) {
+  .column {
+    width: 30%;
+    display: block;
+    margin-bottom: 20px;
+  }
+  .right {
+    float: right;
+    margin-left: 0px;
+  }
 }
-
-.option p {
-  font-weight: bold;
-}
-
-.sort {
-  margin-bottom: 7px !important;
-}
-
-#examples{
-  display: flex;
-  flex-wrap: none;
-  flex-direction: row;
-  justify-content: center;
-  align-items:center;
-  
-}
-
-#examples img{
-  max-width: 16%;
-  max-height: 150px;
-  margin: 10px;
-}
-
