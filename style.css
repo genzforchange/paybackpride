@@ -258,6 +258,12 @@ section h1, section p{
   }
 }
 
+.cards tbody {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .cards tbody tr,
 .cards tbody tr.odd,
 .cards tbody tr.even,
@@ -265,7 +271,6 @@ section h1, section p{
 .cards tbody tr.odd:hover,
 .cards tbody tr.even:hover {
   background-color: white !important;
-  float: left;
   width: 200px;
   margin: 10px;
   border: 1px solid black;
