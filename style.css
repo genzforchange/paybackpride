@@ -274,9 +274,10 @@ section h1, section p{
   padding: 25px;
   text-align: center;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-content: space-between;
 }
 
 thead {
@@ -285,6 +286,7 @@ thead {
 
 .cards tbody td {
   display: block;
+  flex: 0 0 100%;
 }
 
 .title {
@@ -292,7 +294,8 @@ thead {
 }
 
 .cards tbody td:has(i) {
-  display: inline !important;
+  flex: 0 0 auto;
+  padding: 0 6px;
 }
 
 td .a {
