@@ -270,8 +270,13 @@ section h1, section p{
   margin: 10px;
   border: 1px solid black;
   border-radius: 25px;
-  height: 275px;
+  min-height: 325px;
+  padding: 25px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 thead {
