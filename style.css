@@ -165,7 +165,7 @@ section h1, section p{
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: black;
+  color: #333;
   padding-left: 2px;
 }
 
@@ -182,10 +182,10 @@ section h1, section p{
   height: 40px;
   box-sizing: border-box;
   padding: 0 14px;
-  border: 1.5px solid black;
+  border: 1.5px solid #111;
   border-radius: 8px;
-  background-color: white;
-  color: black;
+  background-color: #fff;
+  color: #111;
   font-family: 'League Spartan', sans-serif;
   font-size: 15px;
   font-weight: 500;
