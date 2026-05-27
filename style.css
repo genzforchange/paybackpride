@@ -143,32 +143,118 @@ section h1, section p{
   padding: 25px;
 }
 
-#table_filter{
-  padding: 25px;
+.controls-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 16px;
+  padding: 16px 8px 24px;
 }
 
-.sort {
-  margin-bottom: 7px !important;
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
 }
 
-.by {
-  color: black;
-  border: 2px black solid;
-  border-radius: 5px;
-  padding: 5px;
+.control-label {
+  font-family: 'League Spartan', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #333;
+  padding-left: 2px;
 }
 
-.option {
-  display: inline-block;
-  margin: 10px;
+.control-field {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  height: 40px;
 }
 
-.option p {
-  font-weight: bold;
+.control-field .by,
+.control-field select,
+.control-field input[type="search"] {
+  height: 40px;
+  box-sizing: border-box;
+  padding: 0 14px;
+  border: 1.5px solid #111;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #111;
+  font-family: 'League Spartan', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 38px;
+  outline: none;
+  transition: background-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
 }
 
-input[type="search"]{
-  width: 300px;
+.control-field .by {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.control-field .by:hover,
+.control-field .by:focus {
+  background-color: #111;
+  color: #fff;
+}
+
+.control-field select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 36px;
+  background-image: linear-gradient(45deg, transparent 50%, #111 50%),
+                    linear-gradient(135deg, #111 50%, transparent 50%);
+  background-position: calc(100% - 18px) 50%, calc(100% - 12px) 50%;
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.control-field input[type="search"] {
+  width: 240px;
+  max-width: 100%;
+}
+
+.control-field input[type="search"]:focus,
+.control-field select:focus {
+  box-shadow: 0 0 0 3px rgba(64, 101, 174, 0.25);
+}
+
+#table_filter {
+  padding: 0;
+}
+
+#table_filter label {
+  display: flex;
+  align-items: center;
+  font-size: 0;
+}
+
+#table_filter input[type="search"] {
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .controls-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .control-field {
+    flex-wrap: wrap;
+    height: auto;
+  }
+  .control-field input[type="search"] {
+    width: 100%;
+  }
 }
 
 .cards tbody tr {

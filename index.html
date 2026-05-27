@@ -73,17 +73,26 @@
   </section>
 
   <div class="scroll">
-    <div class="option left">
-      <p class="sort">Sort By:</p>
-      <a class="by name">Name</a>
-      <a class="by money">Donation Amount</a>
+    <div class="controls-toolbar">
+      <div class="control-group sort-group">
+        <span class="control-label">Sort by</span>
+        <div class="control-field">
+          <a class="by name">Name</a>
+          <a class="by money">Donation Amount</a>
+        </div>
+      </div>
+      <div class="control-group">
+        <span class="control-label">Filter</span>
+        <div class="control-field">
+          <select name="categories" id="categories"></select>
+        </div>
+      </div>
+      <div class="control-group search-group">
+        <span class="control-label">Search</span>
+        <div class="control-field" id="search-slot"></div>
+      </div>
     </div>
-    <div class="option right">
-      <p>Filter By Category:</p>
-      <select name="categories" id="categories">
-      </select>
-    </div>
-    
+
     <table id="table" class="cards">
       <tbody id="tbody"></tbody>
     </table>

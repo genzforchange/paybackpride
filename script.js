@@ -396,6 +396,7 @@ $(document).ready(function() {
   
   $('.sorting_disabled').eq(1).text('');
   $('.sorting_disabled').eq(0).css('visibility', 'hidden')
+  $('#search-slot').append($('#table_filter'));
   $('.money').click(function() {
     dt.order( [[ 6, 'desc' ]] ).draw()
   })
