@@ -153,6 +153,13 @@ nav{
   margin: 0;
 }
 
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
 .banner{
   background-color: white;
   width: 100%;
