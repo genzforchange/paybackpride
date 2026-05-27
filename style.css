@@ -258,8 +258,13 @@ section h1, section p{
   }
 }
 
-.cards tbody tr {
-  background-color: white;
+.cards tbody tr,
+.cards tbody tr.odd,
+.cards tbody tr.even,
+.cards tbody tr:hover,
+.cards tbody tr.odd:hover,
+.cards tbody tr.even:hover {
+  background-color: white !important;
   float: left;
   width: 200px;
   margin: 10px;
