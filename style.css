@@ -147,7 +147,7 @@ section h1, section p{
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 16px;
   padding: 16px 8px 24px;
 }
@@ -202,7 +202,8 @@ section h1, section p{
 }
 
 .control-field .by:hover,
-.control-field .by:focus {
+.control-field .by:focus,
+.control-field .by.active {
   background-color: #111;
   color: #fff;
 }
