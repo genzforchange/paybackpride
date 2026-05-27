@@ -36,6 +36,41 @@ a{
   font-weight: 600;
 }
 
+.button {
+  display: inline-block;
+  border-radius: 50px;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 500;
+  font-size: 21px;
+  text-decoration: none;
+  padding: 15px 50px;
+  border: 2px solid black;
+  cursor: pointer;
+  transition: background-color .3s ease, color .3s ease;
+}
+
+.button-white {
+  background-color: white;
+  color: black;
+}
+
+.button-white:hover,
+.button-white:focus {
+  background-color: black;
+  color: white;
+}
+
+.button-black {
+  background-color: black;
+  color: white;
+}
+
+.button-black:hover,
+.button-black:focus {
+  background-color: white;
+  color: black;
+}
+
 body{
   background-color: white;
   margin: 0;
@@ -320,7 +355,7 @@ table {
   box-shadow: 0 3px 9px 0 rgba(0, 0, 0, 0.25);
   padding: 16px;
   text-align: center;
-  background-color: #f1f1f1;
+  background-color: white;
   height: 200px;
 }
 
@@ -342,41 +377,6 @@ dialog {
 
 tbody{
   margin: auto;
-}
-
-.button {
-  display: inline-block;
-  border-radius: 50px;
-  font-family: 'League Spartan', sans-serif;
-  font-weight: 500;
-  font-size: 21px;
-  text-decoration: none;
-  padding: 10px 20px;
-  border: 2px solid black;
-  cursor: pointer;
-  transition: background-color .3s ease, color .3s ease;
-}
-
-.button-white {
-  background-color: white;
-  color: black;
-}
-
-.button-white:hover,
-.button-white:focus {
-  background-color: black;
-  color: white;
-}
-
-.button-black {
-  background-color: black;
-  color: white;
-}
-
-.button-black:hover,
-.button-black:focus {
-  background-color: white;
-  color: black;
 }
 
 .hidden {
