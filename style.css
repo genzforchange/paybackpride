@@ -443,27 +443,26 @@ select {
 }
 
 @media screen and (max-width: 550px) {
-  header {
+  .header{
+    display: flex;
     flex-direction: column;
-    min-height: 0;
+    width: auto;
   }
-  .column_1 {
-    display: contents;
-  }
-  nav {
-    order: 1;
-    height: auto;
-    margin: 0;
-  }
-  .column_2 {
+  .column-1{
     width: 100%;
-    order: 2;
+    padding: 20px 20px;
   }
-  header h1 { order: 3; }
-  .about { order: 4; }
-  .buttons { order: 5; }
-  .header_card {
-    margin: 0;
-    height: auto;
+  .column-2{
+    width: 100%;
+    padding: 20px 20px
+  }
+  .column {
+    width: 30%;
+    display: block;
+    margin-bottom: 20px;
+  }
+  .right {
+    float: right;
+    margin-left: 0px;
   }
 }
