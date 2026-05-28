@@ -221,7 +221,7 @@ section h1, section p{
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #333;
+  color: black;
   padding-left: 2px;
 }
 
@@ -238,10 +238,10 @@ section h1, section p{
   height: 40px;
   box-sizing: border-box;
   padding: 0 14px;
-  border: 1.5px solid #111;
+  border: 1.5px solid black;
   border-radius: 8px;
-  background-color: #fff;
-  color: #111;
+  background-color: white;
+  color: black;
   font-family: 'League Spartan', sans-serif;
   font-size: 15px;
   font-weight: 500;
@@ -260,16 +260,16 @@ section h1, section p{
 .control-field .by:hover,
 .control-field .by:focus,
 .control-field .by.active {
-  background-color: #111;
-  color: #fff;
+  background-color: black;
+  color: white;
 }
 
 .control-field select {
   appearance: none;
   -webkit-appearance: none;
   padding-right: 36px;
-  background-image: linear-gradient(45deg, transparent 50%, #111 50%),
-                    linear-gradient(135deg, #111 50%, transparent 50%);
+  background-image: linear-gradient(45deg, transparent 50%, black 50%),
+                    linear-gradient(135deg, black 50%, transparent 50%);
   background-position: calc(100% - 18px) 50%, calc(100% - 12px) 50%;
   background-size: 6px 6px, 6px 6px;
   background-repeat: no-repeat;
@@ -438,14 +438,30 @@ select {
   color: white;
 }
 
-@media screen and (max-width: 600px) {
-  .column {
-    width: 30%;
-    display: block;
-    margin-bottom: 20px;
+@media screen and (max-width: 1240px) {
+
+}
+
+@media screen and (max-width: 550px) {
+  header {
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+    min-height: 0;
   }
-  .right {
-    float: right;
-    margin-left: 0px;
+  .column_1 {
+    display: contents;
+  }
+  .column_2 {
+    width: 100%;
+    order: 2;
+  }
+  nav { order: 1; margin-bottom: 0; }
+  header h1 { order: 3; }
+  .about { order: 4; }
+  .buttons { order: 5; }
+  .header_card {
+    margin: 0;
+    height: auto;
   }
 }
