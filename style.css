@@ -86,16 +86,12 @@ header{
   color: white;
   display: flex;
   flex-direction: row;
-  position: relative;
 }
 
 nav{
   height: 80px;
   text-align: center;
-  position: absolute;
-  top: 50px;
-  left: 100px;
-  z-index: 1;
+  margin-bottom: 100px;
 }
 
 #header-logo{
@@ -453,8 +449,10 @@ select {
     gap: 20px;
     min-height: 0;
   }
+  .column_1 {
+    display: contents;
+  }
   nav {
-    position: static;
     order: 1;
     height: auto;
     margin: 0;
@@ -463,11 +461,9 @@ select {
     width: 100%;
     order: 2;
   }
-  .column_1 {
-    width: 100%;
-    order: 3;
-    padding: 0;
-  }
+  header h1 { order: 3; }
+  .about { order: 4; }
+  .buttons { order: 5; }
   .header_card {
     margin: 0;
     height: auto;
