@@ -445,8 +445,6 @@ select {
 @media screen and (max-width: 550px) {
   header {
     flex-direction: column;
-    padding: 20px;
-    gap: 20px;
     min-height: 0;
   }
   .column_1 {
