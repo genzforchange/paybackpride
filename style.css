@@ -86,12 +86,16 @@ header{
   color: white;
   display: flex;
   flex-direction: row;
+  position: relative;
 }
 
 nav{
   height: 80px;
   text-align: center;
-  margin-bottom: 100px;
+  position: absolute;
+  top: 50px;
+  left: 100px;
+  z-index: 1;
 }
 
 #header-logo{
@@ -443,26 +447,29 @@ select {
 }
 
 @media screen and (max-width: 550px) {
-  .header{
-    display: flex;
+  header {
     flex-direction: column;
-    width: auto;
+    padding: 20px;
+    gap: 20px;
+    min-height: 0;
   }
-  .column-1{
+  nav {
+    position: static;
+    order: 1;
+    height: auto;
+    margin: 0;
+  }
+  .column_2 {
     width: 100%;
-    padding: 20px 20px;
+    order: 2;
   }
-  .column-2{
+  .column_1 {
     width: 100%;
-    padding: 20px 20px
+    order: 3;
+    padding: 0;
   }
-  .column {
-    width: 30%;
-    display: block;
-    margin-bottom: 20px;
-  }
-  .right {
-    float: right;
-    margin-left: 0px;
+  .header_card {
+    margin: 0;
+    height: auto;
   }
 }
