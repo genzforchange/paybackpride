@@ -1,3 +1,5 @@
+
+
 function rand(arr) {
   return arr[Math.floor(Math.random()*arr.length)]
 }
@@ -6,17 +8,20 @@ function isLowerCase(input) {
   return input === String(input).toLowerCase()
 }
 
+// DROP DOWN //
+
 function addSelect() {
-  var arr = ["", "Alcohol & Substances", "Automobiles", "Beverages", "Cell Providers", "Events & Entertainment", "Dating Apps", "Finance", "Food Brands", "Healthcare", "Personal Care", "Reading", "Restaurants", "Ride Sharing & Delivery", "Shopping", "Social Media & Gaming", "Sports", "Technology", "Television & Media", "Travel"]
+  var arr = ["Finance", "Food & Beverage", "Health", "Shopping & Restaurants", "Tech & Media", "Travel"]
   for (var key of arr) {
     $('select').append('<option value="' + key + '">' + key + '</option>')
   }
 }
 
+// EMAIL WRITING //
 
 function emailLink(company) {
   company = company.replace("&amp;", "&")
-  var hash = companies.find(e => e["Emails"] == company)
+  var hash = new_data.find(e => e["emails"] == company)
   var loyal = ["loyal", "frequent", "regular"]
   var customer = ["customer", "consumer"]
   var incredibly = ["very", "incredibly", "really", "extremely"]
@@ -32,13 +37,15 @@ function emailLink(company) {
   var queer = ["LGBTQ+", "queer"]
   var fund = ["fundraiser", "fund"]
   
-  var email = `To whom it may concern:\n\nAs a ${rand(loyal)} ${rand(customer)}, I am ${rand(incredibly)} ${rand(disappointed)} that you have donated ${hash["TOTAL"]} to ${rand(anti)} politicians and PACs in ${rand(recent)} years despite ${rand(showing)} the ${rand(queer)} community during ${rand(pride)}. I ${rand(wont)} tolerate ${rand(performative)}, so I am ${rand(demand)} you match your ${rand(bigoted)} donation of ${hash["TOTAL"]} to a tax-deductible ${rand(fund)} for struggling ${rand(queer)} youth:\n\nhttps://secure.actblue.com/donate/paybackpride`
-  var emails = hash["Emails"].replace(" ", "")
+  var email = `To whom it may concern:\n\nAs a ${rand(loyal)} ${rand(customer)}, I am ${rand(incredibly)} ${rand(disappointed)} that you have donated ${formatter.format(hash["sum"])} to ${rand(anti)} PACs in ${rand(recent)} years despite ${rand(showing)} the ${rand(queer)} community during ${rand(pride)}. I ${rand(wont)} tolerate ${rand(performative)}, so I am ${rand(demand)} you match your ${rand(bigoted)} donation of ${formatter.format(hash["sum"])} to a tax-deductible ${rand(fund)} for struggling ${rand(queer)} youth:\n\nhttps://secure.actblue.com/donate/paybackpride`
+  var emails = hash["emails"].replace(" ", "")
   var emailLetter = encodeURIComponent(email)
   var subjects = [`${rand(showing)} ${rand(queer)} Youth`, `${rand(performative)} During ${rand(pride)}`, `${rand(pride)} ${rand(fund)}`, `${rand(anti)} Practices`]
   var emailLink=`mailto:${emails}?subject=${encodeURIComponent(rand(subjects).replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase()))}&body=${emailLetter}`
   return emailLink
 }
+
+// FORMAT DOLLARS //
 
 const formatter = new Intl.NumberFormat('en-US', {
   style: 'currency',
@@ -48,6 +55,8 @@ const formatter = new Intl.NumberFormat('en-US', {
   //minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
   maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
 });
+
+const listFormatter = new Intl.ListFormat('en', { style: 'long', type: 'conjunction' });
 
 function fromDollar(money) {
   var int = parseInt(money.replace(/[$,]+/g,""))
@@ -105,18 +114,7 @@ function generateTableHead(table, data) {
       row.appendChild(th);
     // }
   }
-  // var th1 = document.createElement("th");
-  // var text1 = document.createTextNode("Email");
-  // th1.appendChild(text1);
-  // row.appendChild(th1);
-  // var th2 = document.createElement("th");
-  // var text2 = document.createTextNode("Tweet");
-  // th2.appendChild(text2);
-  // row.appendChild(th2);
-  // var th3 = document.createElement("th");
-  // var text3 = document.createTextNode("Instagram");
-  // th3.appendChild(text3);
-  // row.appendChild(th);
+  
 }
 
 function generateTable(table, data, data2) {
@@ -124,8 +122,8 @@ function generateTable(table, data, data2) {
     var row = table.insertRow();
     // if (plus) {
       var cell = row.insertCell();
-      let text = document.createTextNode("+");
-      cell.appendChild(text);
+      // let text = document.createTextNode("+");
+      // cell.appendChild(text);
     // }
     for (key in element) {
       // if (key != "Logo" && key != "Group Donations" && key != "Candidate Donations" && key != "Subsidiaries & Products" && key != "Bills" && key != "2023 Pride Post IG" && key != "2023 Pride Post Twitter") {
@@ -136,48 +134,47 @@ function generateTable(table, data, data2) {
     }
     // let row2 = table.insertRow();
   }
-  for (let element of data2) {
-    var row = table.insertRow();
-    // if (plus) {
-      var cell = row.insertCell();
-      let text = document.createTextNode("+");
-      cell.appendChild(text);
-    // }
-    var parent_hash = companies.find(e => e["COMPANY"] == element["Parent Company"])
-    var hash = {
-      "COMPANY": element["Company"],
-      "Parent Company": element["Parent Company"],
-      "Subsidiaries & Products": "",
-      "To Candidates": parent_hash["To Candidates"],
-      "To PACs": parent_hash["To PACs"],
-      "TOTAL": parent_hash["TOTAL"],
-      "Logo": element["Logo"],
-      "Category": element["Category"],
-      "2023 Pride Post IG": "",
-      "2023 Pride Post Twitter": "",
-      "IG @": element["Instagram @"],
-      "Twitter @": element["Instagram @"],
-      "Emails": parent_hash["Emails"],
-      "Group Donations": "",
-      "Candidate Donations": "",
-      "Bills Facilitated": "",
-      "Bills": "",
-    }
-    for (key in hash) {
-      // if (key != "Logo" && key != "Group Donations" && key != "Candidate Donations" && key != "Subsidiaries & Products" && key != "Bills" && key != "2023 Pride Post IG" && key != "2023 Pride Post Twitter") {
-        let cell = row.insertCell();
-        let text = document.createTextNode(hash[key]);
-        cell.appendChild(text);
-      // }
-    }
-    // let row2 = table.insertRow();
-  }
+  // for (let element of data2) {
+  //   var row = table.insertRow();
+  //   // if (plus) {
+  //     var cell = row.insertCell();
+  //     let text = document.createTextNode("+");
+  //     cell.appendChild(text);
+  //   // }
+  //   // var parent_hash = companies.find(e => e["COMPANY"] == element["Parent Company"])
+  //   var hash = {
+  //     "COMPANY": element["company"], // 0
+  //     "From": element["from"], // 1
+  //     "Subsidiaries & Brands": element["subsidiaries"], // 2
+  //     "Organizations": element['organizations'], // 3
+  //     "Parades": element['parades'], // 4
+  //     "TOTAL": element["sum"], // 5
+  //     "Logo": element["url"], // 6
+  //     "Category": element["industry"], // 7
+  //     "2023 Pride Post IG": "", // 8
+  //     "2023 Pride Post Twitter": "", // 9
+  //     "IG @": element["Instagram @"], // 10
+  //     "Twitter @": element["Instagram @"], // 11
+  //     "Emails": element["emails"], // 12
+  //     "Group Donations": "", // 13
+  //     "Candidate Donations": "", // 14
+  //     "Bills Facilitated": "", // 15
+  //     "Bills": "", // 16
+  //   }
+  //   for (key in hash) {
+  //     // if (key != "Logo" && key != "Group Donations" && key != "Candidate Donations" && key != "Subsidiaries & Products" && key != "Bills" && key != "2023 Pride Post IG" && key != "2023 Pride Post Twitter") {
+  //       let cell = row.insertCell();
+  //       let text = document.createTextNode(hash[key]);
+  //       cell.appendChild(text);
+  //     // }
+  //   }
+  //   // let row2 = table.insertRow();
+  // }
 }
 
 function makeMiniTable(row, data, i) {
   $(row).append('<td><h5>Donation Details</h5><table id="mini"><tbody id="tbody"></tbody></table></td>')
   let table = document.getElementById("mini");
-  // generateTableHead($("#mini", row)[0], Object.keys(data[0]))
   generateTable($("tbody", row)[i], data, false);
 }
 
@@ -247,58 +244,29 @@ function getStates(bills) {
 }
 
 let table = document.querySelector("table");
-let data = Object.keys(companies[0]);
+let data = Object.keys(new_data[0]);
+console.log(data)
 generateTableHead(table, data)
-generateTable(document.querySelector("tbody"), companies, subsidiaries);
+generateTable(document.querySelector("tbody"), new_data, new_data);
+
+// ['COMPANY'0, 'Parent Company'1, 'Subsidiaries & Products'2, 'To Candidates'3, 'To PACs'4, 'TOTAL'5, 'Logo'6, 'Category'7, '2023 Pride Post IG'6, '2023 Pride Post Twitter'7, 'IG @'8, 'Twitter @'9, 'Emails'10, 'Group Donations'11, 'Candidate Donations'12, 'Bills Facilitated'13, 'Bills'14]
+// ['company'1, 'organizations'2, 'parades'3, 'industry'4, 'subsidiaries'5, 'sum'6, 'rga'7, 'raga'8, 'rslc'9, 'from'10, 'emails'11, 'url'12, 'instagram'13, 'twitter'14, 'tiktok'15]
+
 
 $(document).ready(function() {
-  // currentNum = 0
-  // $('tbody tr').each(function (i) {
-  //   if (this.innerHTML != "") {
-  //     this.className = "expandMe"
-  //   } else {
-  //     this.className = "childCell"
-  //     // makeMiniTable(this, companies[currentNum]["Group Donations"], 0)
-  //     makeMiniTable(this, companies[currentNum]["Candidate Donations"], 0)
-  //     currentNum+=1
-  //   }
-  // })
-  // $('body').on('click', 'tr', function () {
-  //       console.log("clicked")
-  //       $(this).find(".card small").show('slow')
-  //       // $('#dialog').show();
-  //       // return false;
-  //   });
-  // $("#gfg").on("keyup", function() {
-  //       var value = $(this).val().toLowerCase();
-  //       $("tbody tr").filter(function() {
-  //           $(this).toggle($(this).text()
-  //           .toLowerCase().indexOf(value) > -1)
-  //         $('.childCell').hide()
-  //       });
-  //   });
-  // $('th')[0].onclick = function() { normalSort() };
-  // $('th')[3].onclick = function() { sortTable(3) };
-  // $('th')[4].onclick = function() { sortTable(4) };
-  // $('th')[5].onclick = function() { sortTable(5) };
-  // $(function() {
-  //   $('.expandMe').on('click', function() {
-  //       $(this).toggleClass('selected').closest('tr').next().toggle();
-  //   })
-  // });
-  // var detailRows = [];
+
   addSelect()
   var dt = $('#table').DataTable({
     paging: false,
     scrollY: 600,
     "dom": '<lf<t>>',
-    order: [[6, 'desc']],
+    order: [[parseInt(6), 'desc']],
     colReorder: {
-            order: [0, 7, 1, 2, 3, 4, 5, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
+            order: [12, 0, 1, 5, 6, 2, 3, 4, 7, 8, 9, 10, 13, 14, 15, 11]
         },
     columnDefs: [
             {
-                targets: [0, 3, 4, 5, 8, 9, 10, 14, 15, 16, 17],
+                targets: [0, 5, 3, 4, 7, 8, 9, 10],
                 visible: false
             },
             {
@@ -306,38 +274,39 @@ $(document).ready(function() {
                 orderable: false
             },
             {
-                targets: 7, 
+                targets: 12, 
                 mRender: function(data, type, full) {
+                    console.log(full)
                     toReturn = ''
-                    if (full[1] != '' && isLowerCase(full[1])) {
-                      toReturn = `<img src="assets/${full[1]}.jpeg"/>`
+                    if (data != '') {
+                      toReturn = `<img src="${data}"/>`
                     }
                   return toReturn
                 }
             },
             {
-                targets: 11,
+                targets: 13,
                 // data: null,
                 // defaultContent: '<button>Click!</button>',
                 mRender: function(data, type, full) {
                   toReturn = ''
-                  if (full[11] != '') {
-                    ig = full[11].replace("@", "")
+                  if (data != '') {
+                    ig = data.replace("@", "")
                     toReturn = '<a class="btn btn-info btn-sm" target="_blank" href="https://instagram.com/' + ig + '""><i class="fa-brands fa-instagram"></i></a>'
                   }
                   return toReturn
                 }
             }, 
             {
-                targets: 12,
+                targets: 14,
                 // data: null,
                 // defaultContent: '<button>Click!</button>',
                 mRender: function(data, type, full) {
                   toReturn = ''
-                  if (full[12] != '') {
-                    twitter = full[12]
-                    if (full[12].includes(",")) {
-                      arr = full[12].split(", ")
+                  if (data != '') {
+                    twitter = data
+                    if (data.includes(",")) {
+                      arr = data.split(", ")
                       twitter = rand(arr)
                     }
                     twitter = twitter.replace("@", "")
@@ -349,57 +318,97 @@ $(document).ready(function() {
                 }
             },
             {
-                targets: 13,
+                targets: 15,
                 // data: null,
                 // defaultContent: '<button>Click!</button>',
                 mRender: function(data, type, full) {
                   toReturn = ''
-                  company = ''
-                  if (full[2] != '') {
-                    company = full[2]
-                  } else {
-                    company = full[1]
+                  if (data != '') {
+                    tiktok = data.replace("@", "")
+                    toReturn = '<a class="btn btn-info btn-sm" target="_blank" href="https://tiktok.com/' + tiktok + '""><i class="fa-brands fa-tiktok"></i></a>'
                   }
-                  toReturn = '<a class="btn btn-info btn-sm email" target="_" href="' + emailLink(data) + '"">Send Email</a>'
                   return toReturn
                 }
             },
             {
-                targets: 2,
-                className: "smaller"
+                targets: 11,
+                // data: null,
+                // defaultContent: '<button>Click!</button>',
+                mRender: function(data, type, full) {
+                  console.log(data)
+                  toReturn = ''
+                  company = full[3]
+                  toReturn = '<a class="btn btn-info btn-sm email" target="_" href="' + emailLink(data) + '"">Send Email</a>'
+                  return toReturn
+                }
             },
-            {
+            { // subsidiaries
+                targets: 5,
+                // className: "smaller"
+            },
+            { // title
                 targets: 1,
                 className: "title",
                 mRender: function(data, type, full) {
-                  return data.toUpperCase()
+                  toReturn = data.toUpperCase()
+                  if (full[3] != "") {
+                    toReturn = `${data.toUpperCase()}<br><span style="font-size: 70%; color: grey">Owns ${listFormatter.format(full[3].split(", "))}</span>`
+                  }
+                  return toReturn
                 }
+            },
+            {
+              targets: 6,
+              className: "title",
+              mRender: function(data, type, full) {
+                toReturn = `${formatter.format(full[4])}<br><span style="font-size: 80%">to ${listFormatter.format(full[11].split(","))}</span>`
+                
+                return toReturn
+              }
+            },
+            {
+              targets: 2,
+              mRender: function(data, type, full) {
+                toReturn = `Sponsoring Pride in ${listFormatter.format(full[6].split(", "))}`
+                // orgs = ''
+                // parades = ''
+                // if (data != '') {
+                //   orgs = data
+                //   toReturn = toReturn + orgs
+                // }
+                // if (full[6] != '') {
+                //   parades = `Pride in ${listFormatter.format(full[6].split(", "))}`
+                //   if (orgs != '') {
+                //     toReturn = toReturn + " & " + parades
+                //   } else {
+                //     toReturn = toReturn + parades
+                //   }
+                // }
+                return `<span style="font-size: 80%; font-style: italic">${toReturn}</span>`
+              }
             },
         ], 
     
   });
-  // var detailRows = [];
 
-  // $('#table tbody').on('click', 'tr', function () {
-  //     var tr = $(this).closest('tr');
-  //     var row = dt.row(tr);
-  //     if (row.child.isShown()) {
-  //         tr.removeClass('details');
-  //         row.child.hide();
-          
-  //     } else {
-  //         tr.addClass('details');
-  //         row.child(donorDetail(row.data())).show();
-          
-  //     }
-  // });
   
   $('.sorting_disabled').eq(1).text('');
   $('.sorting_disabled').eq(0).css('visibility', 'hidden')
   $('#search-slot').append($('#table_filter'));
   $('.money').addClass('active');
+  $('#shuffle').click(function() {
+    console.log('hi')
+    randCompany = rand(new_data)
+    logo = randCompany['url']
+    company = randCompany['company']
+    amt = formatter.format(randCompany['sum'])
+    $('.card-content img').attr("src", logo)
+    $('.card-content h1').text(company)
+    $('.card-content h2').text(amt)
+  })
+  $('#shuffle').click()
   $('.money').click(function() {
-    dt.order( [[ 6, 'desc' ]] ).draw()
+    dt.order( [[parseInt(6), 'desc' ]] ).draw()
     $('.by').removeClass('active');
     $(this).addClass('active');
   })
@@ -416,27 +425,7 @@ $(document).ready(function() {
       $(this).hide()
     }
   })
-  // dt.on('draw', function () {
-  //     detailRows.forEach(function(id, i) {
-  //         $('#' + id + ' td.details-control').trigger('click');
-  //     });
-  // });
-  // $( "table" ).wrap( "<div class='scroll'></div>" );
-  // for (var i = 0; i < companies.length; i++) {
-  //   var theClass = "." + companies[i]["Category"].toLowerCase()
-  //   theClass = theClass.replace("&","").replace("  ", "")
-  //   console.log(theClass + " - " + companies[i]["COMPANY"])
-  //   if (theClass != ".") {
-  //     $(".row").append(`<div class="column">
-  //   <div class="card">
-  //     <h4>${companies[i]["COMPANY"]}
-  //     <small hidden>${companies[i]["Subsidiaries & Products"]}</small>
-  //     </h4>
-  //     <img class="logo" src="${companies[i]["Logo"]}"/>
-  //     <p>${companies[i]["TOTAL"]}</p>
-  //   </div>
-  // </div>`)
-  //   }
-  // }
+  
 });
+
 
