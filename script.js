@@ -36,7 +36,9 @@ function emailLink(company) {
   var bigoted = ["intolerant", "harmful", "bigoted", "damaging", "destructive"]
   var queer = ["LGBTQ+", "queer"]
   var fund = ["fundraiser", "fund"]
-  
+
+
+  // TO DO: change LOYAL CUSTOMER to [CONCERNED] [CONSUMER]
   var email = `To whom it may concern:\n\nAs a ${rand(loyal)} ${rand(customer)}, I am ${rand(incredibly)} ${rand(disappointed)} that you have donated ${formatter.format(hash["sum"])} to ${rand(anti)} PACs in ${rand(recent)} years despite ${rand(showing)} the ${rand(queer)} community during ${rand(pride)}. I ${rand(wont)} tolerate ${rand(performative)}, so I am ${rand(demand)} you match your ${rand(bigoted)} donation of ${formatter.format(hash["sum"])} to a tax-deductible ${rand(fund)} for struggling ${rand(queer)} youth:\n\nhttps://secure.actblue.com/donate/paybackpride`
   var emails = hash["emails"].replace(" ", "")
   var emailLetter = encodeURIComponent(email)

@@ -49,11 +49,13 @@ a {
 
 .button-white {
   background-color: white;
+  border: 3px solid black;
   color: black;
 }
 
 .button-white:hover,
 .button-white:focus {
+  box-sizing: border-box;
   background-color: black;
   color: white;
   border: 3px solid white;
@@ -63,6 +65,7 @@ a {
 
 .button-black {
   background-color: black;
+  border: 3px solid white;
   color: white;
 }
 
