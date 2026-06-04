@@ -1,130 +1,181 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pay Back Pride</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css"
+    />
+    <link
+      href="https://cdn.datatables.net/v/dt/dt-1.13.4/b-2.3.6/cr-1.6.2/fc-4.2.2/fh-3.3.2/r-2.4.1/rg-1.3.1/sc-2.1.1/sb-1.4.2/sp-2.1.2/sl-1.6.2/datatables.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;500&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/84911a2190.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon_io/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicon_io/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="favicon_io/favicon-16x16.png"
+    />
+    <link rel="manifest" href="favicon_io/site.webmanifest" />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-N5RFGXEDEX"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Pay Back Pride</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
-  <link
-    href="https://cdn.datatables.net/v/dt/dt-1.13.4/b-2.3.6/cr-1.6.2/fc-4.2.2/fh-3.3.2/r-2.4.1/rg-1.3.1/sc-2.1.1/sb-1.4.2/sp-2.1.2/sl-1.6.2/datatables.min.css"
-    rel="stylesheet" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;500&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/84911a2190.js" crossorigin="anonymous"></script>
-  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
-  <link rel="manifest" href="favicon_io/site.webmanifest">
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CKTNBVS1XW"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {dataLayer.push(arguments);}
-    gtag('js', new Date());
+      gtag("config", "G-N5RFGXEDEX");
+    </script>
+  </head>
 
-    gtag('config', 'G-CKTNBVS1XW');
-  </script>
-</head>
-
-<body>
-  <header>
-    <div class="column_1">
-      <nav>
-        <img id="header-logo" src="logo.png" alt="Pay Back Pride">
-      </nav>
-      <h1>Pay Back PRIDE.</h1>
-      <div class="about">
-        <p>Every June, massive corporations post rainbow profile pictures and profess to support queer communities,
-          while simultaneously donating hundreds of thousands—if not millions—of dollars to Anti-LGBTQ+ politicians and
-          PACs. <br>
-          This comes at a time when anti-LGBTQ+ legislation is sweeping the nation, with over 530 bills introduced in
-          the most recent legislative session, and 31 passing in 43 states.
-          (<a href="https://www.aclu.org/legislative-attacks-on-lgbtq-rights-2026"
-            target="_blank"><small>ACLU</small></a>). Performative allyship sucks—that’s why this year, we’re demanding
-          that corporations put their money where their mouths are.
-        </p>
-      </div>
-      <div class="buttons">
-        <a href="#take-action" class="button button-white">Act Now</a>
-        <a href="https://secure.actblue.com/donate/paybackpride" class="button button-white">Donate</a>
-      </div>
-    </div>
-    <div class="column_2">
-      <div class="header_card">
-        <a id="shuffle" class="button button-black"><i class="fa-solid fa-shuffle"></i> Shuffle</a>
-        <div class="card-content">
-          <img src="assets/welcome-examples/visa_example.png">
-          <h1>Company Name</h1>
-          <h2>$5,000,000</h2>
+  <body>
+    <header>
+      <div class="column_1">
+        <nav>
+          <img id="header-logo" src="logo.png" alt="Pay Back Pride" />
+        </nav>
+        <h1>Pay Back PRIDE.</h1>
+        <div class="about">
+          <p>
+            Every June, massive corporations post rainbow profile pictures and
+            profess to support queer communities, while simultaneously donating
+            hundreds of thousands—if not millions—of dollars to Anti-LGBTQ+
+            politicians and PACs. <br />
+            This comes at a time when anti-LGBTQ+ legislation is sweeping the
+            nation, with over 530 bills introduced in the most recent
+            legislative session, and 31 passing in 43 states. (<a
+              href="https://www.aclu.org/legislative-attacks-on-lgbtq-rights-2026"
+              target="_blank"
+              ><small>ACLU</small></a
+            >). Performative allyship sucks—that’s why this year, we’re
+            demanding that corporations put their money where their mouths are.
+          </p>
         </div>
-        <a href="#take-action" class="button button-black">Email</a>
+        <div class="buttons">
+          <a href="#take-action" class="button button-white">Act Now</a>
+          <a
+            href="https://secure.actblue.com/donate/paybackpride"
+            class="button button-white"
+            >Donate</a
+          >
+        </div>
       </div>
-    </div>
-  </header>
+      <div class="column_2">
+        <div class="header_card">
+          <a id="shuffle" class="button button-black"
+            ><i class="fa-solid fa-shuffle"></i> Shuffle</a
+          >
+          <div class="card-content">
+            <img src="assets/welcome-examples/visa_example.png" />
+            <h1>Company Name</h1>
+            <h2>$5,000,000</h2>
+          </div>
+          <a href="#take-action" class="button button-black">Email</a>
+        </div>
+      </div>
+    </header>
 
-  <div class="divider">
-    <!-- <div class="banner">
+    <div class="divider">
+      <!-- <div class="banner">
       <p>Lorem Ipsum</p>
     </div> -->
-  </div>
-
-  <section id="take-action">
-    <h1>Take Action</h1>
-    <p>We summed up donation records from 2 dozen companies to PACs (RSLC, RAGA, and RGA) that support candidates who
-      pass and implement our nation’s anti-LGBTQ+ laws. Find your favorite companies and brands below, and in a few
-      clicks, email, tweet, and flood their social media comments to let them know that solidarity is not for sale.
-    </p>
-  </section>
-
-  <div class="scroll">
-    <div class="controls-toolbar">
-      <div class="control-group sort-group">
-        <span class="control-label">Sort by</span>
-        <div class="control-field">
-          <a class="by name">Name</a>
-          <a class="by money">Donation Amount</a>
-        </div>
-      </div>
-      <div class="control-group">
-        <span class="control-label">Filter</span>
-        <div class="control-field">
-          <select name="categories" id="categories"></select>
-        </div>
-      </div>
-      <div class="control-group search-group">
-        <span class="control-label">Search</span>
-        <div class="control-field" id="search-slot"></div>
-      </div>
     </div>
 
-    <table id="table" class="cards">
-      <tbody id="tbody"></tbody>
-    </table>
-  </div>
+    <section id="take-action">
+      <h1>Take Action</h1>
+      <p>
+        We summed up donation records from 2 dozen companies to PACs (RSLC,
+        RAGA, and RGA) that support candidates who pass and implement our
+        nation’s anti-LGBTQ+ laws. Find your favorite companies and brands
+        below, and in a few clicks, email, tweet, and flood their social media
+        comments to let them know that solidarity is not for sale.
+      </p>
+    </section>
 
-  <div class="row">
-    <p>made with ❤️ by gen-z for change's meddling kids</p>
-    <i>Data from <a href="https://translegislation.com/bills/2023/passed" target="_blank">Trans Legislation Tracker</a>,
-      <a href="https://hrc-prod-requests.s3-us-west-2.amazonaws.com/LGBTQ-Guidebook-for-Action.pdf"
-        target="_blank">Human Rights Campaign</a>, and
-      the <a href="https://forms.irs.gov/app/pod/dataDownload/dataDownload" target="_blank">Internal Revenue
-        Service (2018-2022)</a></i>
-  </div>
+    <div class="scroll">
+      <div class="controls-toolbar">
+        <div class="control-group sort-group">
+          <span class="control-label">Sort by</span>
+          <div class="control-field">
+            <a class="by name">Name</a>
+            <a class="by money">Donation Amount</a>
+          </div>
+        </div>
+        <div class="control-group">
+          <span class="control-label">Filter</span>
+          <div class="control-field">
+            <select name="categories" id="categories"></select>
+          </div>
+        </div>
+        <div class="control-group search-group">
+          <span class="control-label">Search</span>
+          <div class="control-field" id="search-slot"></div>
+        </div>
+      </div>
 
-  <script src="https://code.jquery.com/jquery-3.7.0.slim.js"
-    integrity="sha256-7GO+jepT9gJe9LB4XFf8snVOjX3iYNb0FHYr5LI1N5c=" crossorigin="anonymous"></script>
-  <script src="data.js"></script>
-  <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
-  <script
-    src="https://cdn.datatables.net/v/dt/dt-1.13.4/b-2.3.6/cr-1.6.2/fc-4.2.2/fh-3.3.2/r-2.4.1/rg-1.3.1/sc-2.1.1/sb-1.4.2/sp-2.1.2/sl-1.6.2/datatables.min.js"></script>
+      <table id="table" class="cards">
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
 
+    <div class="row">
+      <p>made with ❤️ by gen-z for change's meddling kids</p>
+      <i
+        >Data from
+        <a href="https://translegislation.com/bills/2023/passed" target="_blank"
+          >Trans Legislation Tracker</a
+        >,
+        <a
+          href="https://hrc-prod-requests.s3-us-west-2.amazonaws.com/LGBTQ-Guidebook-for-Action.pdf"
+          target="_blank"
+          >Human Rights Campaign</a
+        >, and the
+        <a
+          href="https://forms.irs.gov/app/pod/dataDownload/dataDownload"
+          target="_blank"
+          >Internal Revenue Service (2018-2022)</a
+        ></i
+      >
+    </div>
 
-  <script src="script.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.slim.js"
+      integrity="sha256-7GO+jepT9gJe9LB4XFf8snVOjX3iYNb0FHYr5LI1N5c="
+      crossorigin="anonymous"
+    ></script>
+    <script src="data.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+    <script src="https://cdn.datatables.net/v/dt/dt-1.13.4/b-2.3.6/cr-1.6.2/fc-4.2.2/fh-3.3.2/r-2.4.1/rg-1.3.1/sc-2.1.1/sb-1.4.2/sp-2.1.2/sl-1.6.2/datatables.min.js"></script>
 
-
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>
