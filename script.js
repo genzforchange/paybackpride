@@ -268,7 +268,7 @@ $(document).ready(function() {
         },
     columnDefs: [
             {
-                targets: [0, 5, 3, 4, 7, 8, 9, 10],
+                targets: [0, 5, 3, 4, 7, 8, 9, 10, 13],
                 visible: false
             },
             {
@@ -371,6 +371,9 @@ $(document).ready(function() {
             {
               targets: 2,
               mRender: function(data, type, full) {
+                if (!full[6] || full[6].trim() === '') {
+                  return ''
+                }
                 toReturn = `Sponsoring Pride in ${listFormatter.format(full[6].split(", "))}`
                 // orgs = ''
                 // parades = ''
