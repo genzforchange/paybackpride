@@ -1,5 +1,5 @@
 hidden=[".config"]
-modules = ["python-3.11"]
+modules = ["python-3.11", "nodejs-20"]
 
 # hosting is currently hardcoded for this language
 # [hosting]
