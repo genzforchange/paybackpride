@@ -451,6 +451,75 @@ select {
   color: grey !important;
 }
 
+#faq {
+  padding: 50px 25px 75px;
+}
+
+.faq-list {
+  width: 100%;
+  max-width: 800px;
+  margin: 25px auto 0;
+  text-align: left;
+}
+
+.faq-item {
+  border-bottom: 1.5px solid black;
+}
+
+.faq-item:first-child {
+  border-top: 1.5px solid black;
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 4px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 500;
+  font-size: 22px;
+  color: black;
+}
+
+.faq-question:hover,
+.faq-question:focus-visible {
+  color: #295da7;
+}
+
+.faq-icon {
+  flex: 0 0 auto;
+  font-size: 16px;
+  transition: transform 0.3s ease;
+}
+
+.faq-item.open .faq-icon {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faq-item.open .faq-answer {
+  max-height: 400px;
+}
+
+.faq-answer p {
+  margin: 0;
+  padding: 0 4px 22px;
+  text-align: left;
+  font-size: 19px;
+  line-height: 30px;
+}
+
 
 @media screen and (max-width: 1240px) {
   h1 {
@@ -529,6 +598,15 @@ select {
     width: 100%;
     height: auto;
     padding: 0
+  }
+
+  .faq-question {
+    font-size: 19px;
+  }
+
+  .faq-answer p {
+    font-size: 17px;
+    line-height: 26px;
   }
 
   .header_card {

@@ -433,4 +433,14 @@ $(document).ready(function() {
   
 });
 
+// FAQ ACCORDION //
+
+document.querySelectorAll('.faq-question').forEach(function(button) {
+  button.addEventListener('click', function() {
+    var item = button.closest('.faq-item');
+    var isOpen = item.classList.toggle('open');
+    button.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+});
+
 
